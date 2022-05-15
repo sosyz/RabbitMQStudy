@@ -33,6 +33,8 @@ public class Work03 {
 
         CancelCallback cancelCallback = consumerTag -> System.out.println("Work02消息消费被中断");
 
+        // 设置不公平分发
+        chan.basicQos(1);
         //采用手动应答
         chan.basicConsume(QUEUE_NAME, false, deliverCallback,cancelCallback);
     }

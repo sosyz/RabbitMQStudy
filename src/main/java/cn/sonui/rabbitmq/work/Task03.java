@@ -35,6 +35,7 @@ public class Task03 {
                     并不是绝对保存不丢失，在写入内存尚未写入到磁盘或者磁盘未保存的时候仍会丢失
               4 发送的消息体的二进制
              */
+            // 消息持久化
             chan.basicPublish("", QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN
                     , msg.getBytes(StandardCharsets.UTF_8));
             System.out.println("[x] Sent '"+msg+"'");
